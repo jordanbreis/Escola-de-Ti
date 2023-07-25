@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'main-project-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-end';
+
+  httpClient = inject(HttpClient)
+
+  hello$ = this.httpClient.get('/api')
+
 }
