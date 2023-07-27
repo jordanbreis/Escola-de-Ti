@@ -1,0 +1,21 @@
+<p>account-feature-users works!</p>
+
+<form [formGroup]="form" (submit)="onSubmit()">
+    <label>
+        <input type="text" formControlName="email" placeholder="email">
+    </label>
+    <label>
+        <input type="password" formControlName="password" placeholder="password">
+    </label>
+    <label>
+        <input type="text" formControlName="firstname" placeholder="firstname">
+    </label>
+    <label>
+        <input type="text" formControlName="lastname" placeholder="lastname">
+    </label>
+    <label>
+        <input type="number" formControlName="authorizesLevel" placeholder="accountLevel">
+    </label>
+
+    <button>Login</button>
+</form>

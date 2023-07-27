@@ -3,9 +3,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from '../users/users.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://jordan:teste123@cluster0.nrk6gm2.mongodb.net/')],
+  imports: [MongooseModule.forRoot('mongodb://0.0.0.0:27017/escola-de-ti'), UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
