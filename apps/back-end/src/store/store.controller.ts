@@ -13,7 +13,7 @@ import { UpdateStoreDto } from './dto/update-store.dto';
 
 @Controller('store')
 export class StoreController {
-  constructor(private readonly storeService: StoreService) { }
+  constructor(private readonly storeService: StoreService) {}
 
   @Post()
   create(@Body() createStoreDto: CreateStoreDto) {
@@ -33,6 +33,11 @@ export class StoreController {
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateStoreDto: UpdateStoreDto) {
     return this.storeService.update(id, updateStoreDto);
+  }
+
+  @Patch(':id')
+  addProducts(@Param('id') id: string, @Body() updateStoreDto: UpdateStoreDto) {
+    return this.storeService.addProducts(id, updateStoreDto);
   }
 
   @Delete(':id')
