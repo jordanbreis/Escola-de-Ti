@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form class="crud" [formGroup]="form" (submit)="onSubmit()">
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your name</mat-label>
+      <input matInput type="text" formControlName="name" required />
+    </mat-form-field>
+  </div>
+
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your description</mat-label>
+      <input matInput type="text" formControlName="description" required />
+    </mat-form-field>
+  </div>
+
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your price</mat-label>
+      <input matInput type="number" formControlName="price" required />
+    </mat-form-field>
+  </div>
+
+  <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your quantity</mat-label>
+      <input matInput type="number" formControlName="quantity" required />
+    </mat-form-field>
+  </div>
+
+  <button mat-fab extended color="primary">Cadastrar</button>
+</form>

@@ -15,8 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@main-project/account/feature-products": [
+        "libs/account/feature-products/src/index.ts"
+      ],
       "@main-project/account/feature-users": [
         "libs/account/feature-users/src/index.ts"
+      ],
+      "@main-project/products/feature-products": [
+        "libs/products/feature-products/src/index.ts"
       ]
     }
   },
