@@ -21,6 +21,7 @@ export class ProductForm extends FormGroup {
 export class FeatureProductsComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
+  showFiller = false;
   http = inject(HttpClient);
 
   form = new ProductForm();

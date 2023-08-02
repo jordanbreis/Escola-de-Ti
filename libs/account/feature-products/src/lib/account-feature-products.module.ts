@@ -11,6 +11,7 @@ import { NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgIf,
     HttpClientModule,
-  ],
+    MatSidenavModule],
   declarations: [FeatureProductsComponent],
 })
-export class AccountFeatureProductsModule {}
+export class AccountFeatureProductsModule { }
