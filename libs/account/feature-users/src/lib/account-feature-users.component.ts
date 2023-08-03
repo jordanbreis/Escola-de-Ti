@@ -1,16 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'
+import { Component, OnInit, inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
 
 export class AuthForm extends FormGroup {
   constructor() {
     super({
       email: new FormControl(''),
       password: new FormControl(''),
-      firstname: new FormControl(''),
-      lastname: new FormControl(''),
-      authorizesLevel: new FormControl('')
-    })
+    });
   }
 }
 
@@ -19,16 +17,28 @@ export class AuthForm extends FormGroup {
   templateUrl: './account-feature-users.component.html',
   styleUrls: ['./account-feature-users.component.scss'],
 })
-export class AccountFeatureUsersComponent {
+export class AccountFeatureUsersComponent implements OnInit {
+  httpClient = inject(HttpClient);
+  authclient = inject(AuthService);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  hide = true;
+  showFiller = false;
 
-  httpClient = inject(HttpClient)
+  form = new AuthForm();
 
-  form = new AuthForm()
-
-  onSubmit() {
-    this.httpClient
-      .post('/api/users', this.form.value)
-      .subscribe(console.log)
+  ngOnInit() {
+    console.log(this.authclient);
   }
 
+  onSubmit() {
+    this.authclient.singIn(this.form.value);
+  }
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
 }

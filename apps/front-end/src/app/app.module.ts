@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FeatureProductsComponent } from 'libs/account/feature-products/src/lib/feature-products.component';
 import { AccountFeatureProductsModule } from '@main-project/account/feature-products';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -20,7 +20,9 @@ import { AccountFeatureProductsModule } from '@main-project/account/feature-prod
     BrowserAnimationsModule,
     AccountFeatureProductsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, multi: true, useClass: AuthInterceptor },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
