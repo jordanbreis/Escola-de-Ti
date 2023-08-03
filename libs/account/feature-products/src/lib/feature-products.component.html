@@ -38,7 +38,12 @@
     </button>
   </mat-drawer>
 
-  <form class="crud" [formGroup]="form" (submit)="onSubmit()">
+  <form
+    class="crud"
+    id="glass-container"
+    [formGroup]="form"
+    (submit)="onSubmit()"
+  >
     <div class="example-container-slidebar">
       <mat-form-field>
         <mat-label>Enter your name</mat-label>
@@ -68,5 +73,5 @@
     </div>
 
     <button mat-fab extended color="primary">Cadastrar</button>
-  </form></mat-drawer-container
->
+  </form>
+</mat-drawer-container>
