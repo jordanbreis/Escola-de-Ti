@@ -4,6 +4,7 @@
 
 .example-container mat-form-field + mat-form-field {
   margin-left: 8px;
+  height: 100%;
 }
 
 .crud {
@@ -42,11 +43,19 @@
     rgba(66, 60, 90, 0.6)
   );
   width: min-content;
+  height: min-content;
   margin: auto;
   margin-top: 50px;
-  justify-content: center;
-  align-items: normal;
+  grid-template-columns: repeat(1, 1fr);
   display: grid;
   min-height: 70px;
   mix-blend-mode: hard-light;
+}
+
+:host {
+  height: 100%;
+}
+
+.drawer-container {
+  height: 100%;
 }
